@@ -1,0 +1,7 @@
+{
+    "HOST": "localhost",
+    "USER": "postgres",
+    "PASSWORD": "postgres",
+    "DB":"solana-wallet",
+    "dialect": "postgres"
+}

@@ -1,8 +1,7 @@
 
-
 const Sequelize = require('sequelize');
-const sequelize  = require('../database/database');
-const Profile = require('./profles');
+const sequelize  = require('../../config/db');
+
 
 const User = sequelize.define(
     'users',
@@ -17,22 +16,23 @@ const User = sequelize.define(
             allowNull: false
         },
         email: {
-            type: DataTypes.STRING,
+            type: Sequelize.TEXT,
             unique: true,
             allowNull: false,
-            validate: {
-              isEmail: {
-                  msg: "Ingresa un email válido",
-                }
-            }
+            
         },
         password: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-              min: [7],
-              msg: "La contraseña debe tener al menos 7 caracteres"
-            }
+            type: Sequelize.TEXT,
+            allowNull: false,            
+        },
+        phone: {
+            type: Sequelize.TEXT
+        },
+        company: {
+            type: Sequelize.TEXT
+        },
+        image: {
+            type: Sequelize.BLOB
         }
     },
     {
@@ -40,8 +40,7 @@ const User = sequelize.define(
     }
 )
 
-User.hasOne(Profile, { foreignKey: "userid", sourceKey: "id" })
-Profile.belongsTo(User, {foreignKey: "userid", sourceKey: "id"})
+
 
 module.exports = User;
 

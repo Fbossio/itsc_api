@@ -10,12 +10,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@solana/spl-token": "^0.1.8",
     "@solana/web3.js": "^1.29.2",
+    "bcryptjs": "^2.4.3",
+    "bip39": "^3.0.4",
+    "buffer": "^6.0.3",
     "config": "^3.3.6",
+    "ed25519-hd-key": "^1.2.0",
+    "ethers": "^5.4.7",
     "express": "^4.17.1",
+    "express-validator": "^6.12.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "tweetnacl": "^1.0.3"
   }
 }

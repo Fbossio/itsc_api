@@ -1,10 +1,10 @@
 
 const Sequelize = require('sequelize');
 const sequelize  = require('../../config/db');
+const Rol = require('./roles')
 
-
-const User = sequelize.define(
-    'users',
+const Usuario = sequelize.define(
+    'usuarios',
     {
         id: {
             type: Sequelize.INTEGER,
@@ -12,6 +12,10 @@ const User = sequelize.define(
             autoIncrement: true
         },
         username: {            
+            type: Sequelize.TEXT,
+            allowNull: false
+        },
+        userlastname: {
             type: Sequelize.TEXT,
             allowNull: false
         },
@@ -25,23 +29,38 @@ const User = sequelize.define(
             type: Sequelize.TEXT,
             allowNull: false,            
         },
-        phone: {
+        imagen: {
             type: Sequelize.TEXT
         },
-        company: {
+        telefono: {
             type: Sequelize.TEXT
         },
-        image: {
-            type: Sequelize.BLOB
+        empresa: {
+            type: Sequelize.TEXT
+        },
+        instagram_link: {
+            type: Sequelize.TEXT
+        },
+        facebook_link: {
+            type: Sequelize.TEXT
+        },
+        twitter_link: {
+            type: Sequelize.TEXT
+
+        },
+        wallet_address: {
+            type: Sequelize.TEXT
         }
+        
     },
     {
         timestamps: false,
     }
 )
 
+Usuario.hasOne(Rol)
+Rol.belongsTo(Usuario)
 
-
-module.exports = User;
+module.exports = Usuario;
 
 

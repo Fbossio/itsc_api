@@ -1,10 +1,11 @@
 
 const Sequelize = require('sequelize');
 const sequelize  = require('../../config/db');
-const Rol = require('./roles')
+
 
 const Usuario = sequelize.define(
     'usuarios',
+    
     {
         id: {
             type: Sequelize.INTEGER,
@@ -15,10 +16,7 @@ const Usuario = sequelize.define(
             type: Sequelize.TEXT,
             allowNull: false
         },
-        userlastname: {
-            type: Sequelize.TEXT,
-            allowNull: false
-        },
+        
         email: {
             type: Sequelize.TEXT,
             unique: true,
@@ -50,16 +48,21 @@ const Usuario = sequelize.define(
         },
         wallet_address: {
             type: Sequelize.TEXT
+        },
+        rol: {
+            type: Sequelize.TEXT,
+            default: 'user'
         }
         
     },
     {
         timestamps: false,
+        tableName: 'usuario',
+       
+
     }
 )
 
-Usuario.hasOne(Rol)
-Rol.belongsTo(Usuario)
 
 module.exports = Usuario;
 

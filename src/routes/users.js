@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { body, validationResult } = require('express-validator');
-const User = require('../models/users');
+const Usuario = require('../models/users');
 
 
 const router = Router();
@@ -29,7 +29,7 @@ async (req, res) => {
     let {username, email, password} = req.body;
 
     try {
-        const user = await User.findOne({
+        const user = await Usuario.findOne({
             where: {
                 email: email
             }
@@ -41,7 +41,7 @@ async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         password = await bcrypt.hash(password, salt);
 
-        const newUser = await User.create(
+        const newUser = await Usuario.create(
             {
                 username: username,
                 email: email,
@@ -68,7 +68,7 @@ async (req, res) => {
 
 
 
-    } catch (error) {
+    } catch (err) {
         console.error(err.message);
         return res.status(500).send('Server Error');
         

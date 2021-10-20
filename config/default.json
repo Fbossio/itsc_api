@@ -2,9 +2,9 @@
     "HOST": "localhost",
     "USER": "postgres",
     "PASSWORD": "postgres",
-    "DB":"solana-wallet",
+    "DB":"itsc",
     "dialect": "postgres",
     "jwtSecret": "secret",
-    "clusterApiUrl": "devnet"
+    "clusterApiUrl": "devnet"    
     
 }

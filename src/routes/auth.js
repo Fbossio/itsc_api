@@ -6,7 +6,7 @@ const config = require('config');
 const auth = require('../../middleware/auth');
 const { body, validationResult } = require('express-validator');
 
-const User = require('../models/users');
+const Usuario = require('../models/users');
 
 
 // @route       GET api/auth
@@ -16,7 +16,7 @@ const User = require('../models/users');
 router.get('/', auth, async(req, res) => {
     try {
         const { email } = req.body;
-        const user = await User.findOne({
+        const user = await Usuario.findOne({
             where: {
                 email: email
             },
@@ -48,7 +48,7 @@ async(req, res) => {
     const { email, password } = req.body;
 
     try {
-        let user = await User.findOne({
+        let user = await Usuario.findOne({
             where: {
                 email: email
             }

@@ -14,13 +14,14 @@ app.use(json());
 // Importar rutas
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
-const walletRoutes = require('./routes/wallet')
+const adminRoutes = require('./routes/admin');
 
 
 // Rutas
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/wallet', walletRoutes);
+app.use('/api/admin', adminRoutes)
+
 
 
 
